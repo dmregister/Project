@@ -12,9 +12,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       flash[:success] = "Welcome to the David's RoR Project"
       redirect_to @user
     else
+      @user.password.clear
+      @user.password_confirmation.clear
       @title = "Sign Up"
       render 'new'
     end
