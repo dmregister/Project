@@ -69,6 +69,7 @@ describe UsersController do
             post :create, :user => @attr
             response.should render_template('new')
           end
+        end
           
           describe "success" do
             before(:each) do
@@ -95,7 +96,6 @@ describe UsersController do
             #  post :create, :user => @attr flash[:success].should =~ /welcome to the david's RoR project/i
             #end
             
-          end
         end
       end
   end
