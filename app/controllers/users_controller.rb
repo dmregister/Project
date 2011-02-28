@@ -16,8 +16,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the David's RoR Project"
       redirect_to @user
     else
-      @user.password
-      @user.password_confirmation
+      page[:password].value = ''
+      page[:password_confirmation].value = ''
       @title = "Sign Up"
       render 'new'
     end
