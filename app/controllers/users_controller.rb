@@ -16,8 +16,6 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the David's RoR Project"
       redirect_to @user
     else
-      @user[:password].reset
-      @user[:password_confirmation].reset
       @title = "Sign Up"
       render 'new'
     end
