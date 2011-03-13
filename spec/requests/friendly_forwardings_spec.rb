@@ -9,6 +9,6 @@ describe "FriendlyForwardings" do
     fill_in :password, :with => user.password
     click_button
     #the test follows the redirect again, this time to the users/edits
-    response.should reneder_template('users/edit')
+    response.should render_template('users/edit')
   end
 end
