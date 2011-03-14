@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
   end
   
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+   
     @title = "Edit user"
   end
   

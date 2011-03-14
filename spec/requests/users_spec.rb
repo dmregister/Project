@@ -22,7 +22,7 @@ describe "Users" do
         lambda do
         visit signup_path
         fill_in "Name",                    :with => "Example User"
-        fill_in "Email",                   :with => "user@example.com"
+        fill_in "Email",                   :with => "user@example1.com"
         fill_in "Password",                :with => "foobar"
         fill_in "Password Confirmation",   :with => "foobar"
         click_button
@@ -56,26 +56,6 @@ describe "Users" do
         click_link "Sign out"
         controller.should_not be_signed_in
       end
-    end
-  end
-  
-  describe "admin attribute" do
-
-    before(:each) do
-      @user = User.create!(@attr)
-    end
-
-    it "should respond to admin" do
-      @user.should respond_to(:admin)
-    end
-
-    it "should not be an admin by default" do
-      @user.should_not be_admin
-    end
-
-    it "should be convertible to an admin" do
-      @user.toggle!(:admin)
-      @user.should be_admin
     end
   end
 end
